@@ -13,5 +13,6 @@ public class Jelinjontest {
             long result = testest.factorial(number);
 
             Assertions.assertEquals(expectedResult, result);
+//            test
         }
     }
