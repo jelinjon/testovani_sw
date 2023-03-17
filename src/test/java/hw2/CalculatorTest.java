@@ -25,4 +25,5 @@ public class CalculatorTest {
         int num = calculator.divide(6, 2);
         Assertions.assertEquals(3, num);
     }
+//    todo dopsat exception na deleni nulou
 }
