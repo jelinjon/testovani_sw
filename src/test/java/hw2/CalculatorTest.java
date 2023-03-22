@@ -3,6 +3,8 @@ package hw2;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public class CalculatorTest {
     Calculator calculator = new Calculator();
     @Test
@@ -25,5 +27,9 @@ public class CalculatorTest {
         int num = calculator.divide(6, 2);
         Assertions.assertEquals(3, num);
     }
-//    todo dopsat exception na deleni nulou
+
+    @Test
+    public void divideByZero_returnsException(){
+        Throwable exception = assertThrows(ArithmeticException.class, ()-> calculator.divide(3, 0));
+    }
 }
