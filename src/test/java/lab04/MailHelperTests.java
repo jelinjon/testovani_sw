@@ -1,15 +1,18 @@
 package lab04;
 
+import lab04.refactoring.DBManager;
 import lab04.refactoring.MailHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class MailHelperTests {
     private String to;
     private String subject;
     private String body;
-    private MailHelper mailHelper = new MailHelper();
+    DBManager mockDBManager = Mockito.mock(DBManager.class);
+    private MailHelper mailHelper = new MailHelper(mockDBManager);
 
     @BeforeEach
     public void setMailData(){

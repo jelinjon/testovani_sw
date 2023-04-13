@@ -12,6 +12,11 @@ import javax.mail.internet.MimeMessage;
  * @author balikm1
  */
 public class MailHelper {
+    private final DBManager dbManager;
+
+    public MailHelper(DBManager dbManager){
+        this.dbManager = dbManager;
+    }
     private Mail mail;
 
    public Mail getMail(){
@@ -43,12 +48,13 @@ public class MailHelper {
        handleDebugAndSendMail();
     }
     
-    public static void sendMail(int mailId)
+    public void sendMail(int mailId)
     {
         try
         {
             // get entity
-            Mail mail = new DBManager().findMail(mailId);
+            Mail mail = this.dbManager.findMail(mailId);
+//            this.mail = this.
             if (mail == null) {
                 return;
             }
