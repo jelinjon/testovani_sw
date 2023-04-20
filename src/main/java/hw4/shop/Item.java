@@ -8,7 +8,7 @@ package hw4.shop;
 
 
 public abstract class Item {
-    private int id;
+    public int id;
     private String name;
     private float price;
     private String category;

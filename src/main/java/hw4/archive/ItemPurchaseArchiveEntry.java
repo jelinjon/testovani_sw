@@ -2,9 +2,9 @@ package hw4.archive;
 
 import hw4.shop.Item;
 
-class ItemPurchaseArchiveEntry {
+public class ItemPurchaseArchiveEntry {
     private Item refItem;
-    private int soldCount;
+    public int soldCount; // made public
     
     ItemPurchaseArchiveEntry(Item refItem) {
         this.refItem = refItem;

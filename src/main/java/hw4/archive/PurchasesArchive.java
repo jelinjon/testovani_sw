@@ -2,18 +2,16 @@ package hw4.archive;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import hw4.shop.*;
-import hw4.storage.*;
 
 
 /**
  * Class for archive of the purchases
  */
 public class PurchasesArchive {
-    private HashMap<Integer, ItemPurchaseArchiveEntry> itemPurchaseArchive;
-    private ArrayList<Order> orderArchive;
+    public HashMap<Integer, ItemPurchaseArchiveEntry> itemPurchaseArchive;
+    public ArrayList<Order> orderArchive;
     
     public PurchasesArchive() {
         itemPurchaseArchive = new HashMap();
@@ -24,7 +22,7 @@ public class PurchasesArchive {
         this.itemPurchaseArchive = itemArchive;
         this.orderArchive = orderArchive;
     }
-    
+
     public void printItemPurchaseStatistics() {
         Collection<ItemPurchaseArchiveEntry> itemEntries = itemPurchaseArchive.values();
         System.out.println("ITEM PURCHASE STATISTICS:");
@@ -37,9 +35,6 @@ public class PurchasesArchive {
         }
         return 0;
     }
-    
-
-    
     
     public void putOrderToPurchasesArchive(Order order) {
         orderArchive.add(order);
