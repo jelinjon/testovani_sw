@@ -16,7 +16,7 @@ public class PurchasesArchiveTest {
     PurchasesArchive purchasesArchive = new PurchasesArchive();
 
     @Test
-    public void printItemPurchaseStatisticsTest(){
+    public void printItemPurchaseStatistics_returnsString(){
 
         String expected_result = "ITEM PURCHASE STATISTICS:";
 
@@ -47,7 +47,7 @@ public class PurchasesArchiveTest {
     }
 
     @Test
-    public void getHowManyTimesHasBeenItemSoldTest(){
+    public void getHowManyTimesHasBeenItemSold_1(){
         ShoppingCart shoppingCart = new ShoppingCart();
         Item item1 = new StandardItem(1, "item1", 100, "test_item", 3);
         shoppingCart.addItem(item1);
@@ -59,7 +59,7 @@ public class PurchasesArchiveTest {
     }
 
     @Test
-    public void putOrderToPurchasesArchive(){
+    public void putOrderToPurchasesArchive_orderEquals_itemSold1(){
         ShoppingCart shoppingCart = new ShoppingCart();
         Item item1 = new StandardItem(1, "item1", 100, "test_item", 3);
         shoppingCart.addItem(item1);
@@ -69,10 +69,5 @@ public class PurchasesArchiveTest {
         Order resulting_order = purchasesArchive.orderArchive.get(0);
         Assertions.assertTrue(order.equals(resulting_order));
         Assertions.assertEquals(1, purchasesArchive.getHowManyTimesHasBeenItemSold(item1));
-    }
-
-    @Test
-    public void MockOrderArchiveTest(){
-
     }
 }
