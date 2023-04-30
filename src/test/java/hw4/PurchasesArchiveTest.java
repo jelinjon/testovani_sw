@@ -8,6 +8,8 @@ import hw4.shop.ShoppingCart;
 import hw4.shop.StandardItem;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Collection;
@@ -69,5 +71,17 @@ public class PurchasesArchiveTest {
         Order resulting_order = purchasesArchive.orderArchive.get(0);
         Assertions.assertTrue(order.equals(resulting_order));
         Assertions.assertEquals(1, purchasesArchive.getHowManyTimesHasBeenItemSold(item1));
+    }
+
+    @Test
+    public void MockOrderArchiveTest(){
+        ShoppingCart shoppingCart = new ShoppingCart();
+        purchasesArchive.orderArchive = Mockito.mock(purchasesArchive.orderArchive.getClass());
+        Item item1 = new StandardItem(1, "item1", 100, "test_item", 3);
+        shoppingCart.addItem(item1);
+        Order order = new Order(shoppingCart, "test_customer", "test_customer_address");
+
+        purchasesArchive.putOrderToPurchasesArchive(order);
+        Mockito.verify(purchasesArchive.orderArchive).add(order);
     }
 }
