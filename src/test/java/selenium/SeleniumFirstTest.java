@@ -3,8 +3,13 @@ package selenium;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class SeleniumFirstTest {
     public ChromeDriver driver;
@@ -26,6 +31,10 @@ public class SeleniumFirstTest {
         driver.findElement(By.cssSelector("#AccountFrm_loginname")).sendKeys("ASDSasdasd");
         driver.findElement(By.cssSelector("#AccountFrm_password")).sendKeys("asdFAFSdasd");
 
+        // lepsi metoda cekani na ancteni stranky (explicitni cekani)
+//        WebElement firstResultl = new WebDriverWait(driver, Duration.ofSeconds(10))
+//                .until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Continue']")));
+
         Select countrySelect = new Select(driver.findElement(By.cssSelector("#AccountFrm_country_id")));
         countrySelect.selectByVisibleText("Czech Republic");
         Select regionSelect = new Select(driver.findElement(By.cssSelector("#AccountFrm_zone_id")));
@@ -35,5 +44,10 @@ public class SeleniumFirstTest {
         driver.findElement(By.cssSelector("button[title='Continue']")).click();
 
 //        driver.quit(); // dobry davat after all
+    }
+
+    @Test
+    public void secondTest(){
+
     }
 }

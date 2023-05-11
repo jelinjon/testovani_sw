@@ -7,8 +7,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class POM_login {
-    public ChromeDriver driver = new ChromeDriver();
+    public ChromeDriver driver;
     public POM_login(){
+        driver = new ChromeDriver();
+        driver.get("https://link.springer.com/signup-login");
+        PageFactory.initElements(driver, this);
+    }
+    public POM_login(ChromeDriver driver){
         driver.get("https://link.springer.com/signup-login");
         PageFactory.initElements(driver, this);
     }

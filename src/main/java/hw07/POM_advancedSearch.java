@@ -6,8 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class POM_advancedSearch {
-    public ChromeDriver driver = new ChromeDriver();
+    public ChromeDriver driver;
     public POM_advancedSearch(){
+        driver = new ChromeDriver();
+        driver.get("https://link.springer.com/advanced-search");
+        PageFactory.initElements(driver, this);
+    }
+    public POM_advancedSearch(ChromeDriver driver){
         driver.get("https://link.springer.com/advanced-search");
         PageFactory.initElements(driver, this);
     }

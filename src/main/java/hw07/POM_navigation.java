@@ -6,8 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class POM_navigation {
-    public ChromeDriver driver = new ChromeDriver();
+    public ChromeDriver driver;
     public POM_navigation(){
+        driver = new ChromeDriver();
+        driver.get("https://link.springer.com/");
+        PageFactory.initElements(driver, this);
+    }
+    public POM_navigation(ChromeDriver driver){
         driver.get("https://link.springer.com/");
         PageFactory.initElements(driver, this);
     }

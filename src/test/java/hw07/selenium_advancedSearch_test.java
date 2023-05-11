@@ -7,6 +7,6 @@ public class selenium_advancedSearch_test {
 
     @Test
     public void advancedSearchTest1(){
-        //neco neco
+        //todo
     }
 }
