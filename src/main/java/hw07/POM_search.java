@@ -1,20 +1,26 @@
 package hw07;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class POM_search {
-    public ChromeDriver driver;
-    public POM_search(){
-        driver = new ChromeDriver();
-        driver.get("https://link.springer.com/search");
+    public WebDriver driver;
+
+    public POM_search(WebDriver driver){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
+        this.driver = driver;
+//        wait.until(ExpectedConditions.visibilityOf(datePublishSubmenu));
     }
-    public POM_search(ChromeDriver driver){
+
+    public POM_search gotoSearch(){
         driver.get("https://link.springer.com/search");
-        PageFactory.initElements(driver, this);
+        return this;
     }
     @FindBy(xpath = "//input[@id='query']")
     WebElement searchField;
@@ -36,5 +42,36 @@ public class POM_search {
     WebElement submitButton;
     @FindBy(xpath = "//span[normalize-space()='Article']")
     WebElement contentTypeArticle;
+
+
+    public POM_search dateSubmenuOpen() throws InterruptedException {
+        this.datePublishSubmenu.click();
+        Thread.sleep(2000);
+
+        return this;
+    }
+    public POM_search typeStartYear(String text){
+        this.startYearField.clear();
+        this.startYearField.sendKeys(text);
+        return this;
+    }
+    public POM_search typeEndYear(String text){
+        this.endYearField.clear();
+        this.endYearField.sendKeys(text);
+        return this;
+    }
+    public POM_search submitButtonPress(){
+        this.submitButton.click();
+        return this;
+    }
+
+    public POM_search articleButtonPress(){
+        this.contentTypeArticle.click();
+        return this;
+    }
+
+//    public POM_search (){
+//        return this;
+//    }
 
 }

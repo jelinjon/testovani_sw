@@ -1,20 +1,27 @@
 package hw07;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class POM_navigation {
-    public ChromeDriver driver;
-    public POM_navigation(){
-        driver = new ChromeDriver();
-        driver.get("https://link.springer.com/");
+    public WebDriver driver;
+
+    public POM_navigation(WebDriver driver){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
+        this.driver = driver;
+        wait.until(ExpectedConditions.visibilityOf(advancedButton));
     }
-    public POM_navigation(ChromeDriver driver){
+
+    public POM_navigation openNavigation(){
         driver.get("https://link.springer.com/");
-        PageFactory.initElements(driver, this);
+        return this;
     }
     @FindBy(xpath = "//div[@class='cross-nav cross-nav--wide']//a[@class='register-link flyout-caption']")
     WebElement loginLink;
@@ -23,12 +30,4 @@ public class POM_navigation {
     @FindBy(xpath = "//a[@id='advanced-search-link']")
     WebElement advancedSearchButton;
 
-    public void goToLogin(){
-        loginLink.click();
-    }
-
-    public void goToAdvancedSearch(){
-        advancedButton.click();
-        advancedSearchButton.click();
-    }
 }
