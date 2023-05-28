@@ -1,0 +1,16 @@
+# ACTS Test Suite Generation: Sun May 28 18:55:26 CEST 2023
+#  '*' represents don't care value 
+# Degree of interaction coverage: 2
+# Number of parameters: 5
+# Maximum number of values per parameter: 3
+# Number of configurations: 9
+Registrace,jmeno_prijmeni,destinace,datum_naroz,sleva
+false,null,mimo_eu,dd_mm_yyyy,duchodce
+true,null,eu,mm_dd_yyyy,kupon
+false,null,eu,yyyy_mm_dd,student
+true,písmena,mimo_eu,dd_mm_yyyy,kupon
+false,písmena,mimo_eu,mm_dd_yyyy,student
+true,písmena,eu,yyyy_mm_dd,duchodce
+true,zvláštní znaky,eu,dd_mm_yyyy,student
+false,zvláštní znaky,mimo_eu,mm_dd_yyyy,duchodce
+false,zvláštní znaky,mimo_eu,yyyy_mm_dd,kupon

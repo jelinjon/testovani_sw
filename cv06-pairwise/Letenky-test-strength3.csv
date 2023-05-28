@@ -1,0 +1,34 @@
+# ACTS Test Suite Generation: Sun May 28 18:56:05 CEST 2023
+#  '*' represents don't care value 
+# Degree of interaction coverage: 3
+# Number of parameters: 5
+# Maximum number of values per parameter: 3
+# Number of configurations: 27
+Registrace,jmeno_prijmeni,destinace,datum_naroz,sleva
+true,null,eu,dd_mm_yyyy,student
+false,null,mimo_eu,dd_mm_yyyy,duchodce
+true,null,mimo_eu,dd_mm_yyyy,kupon
+false,null,eu,mm_dd_yyyy,student
+true,null,eu,mm_dd_yyyy,duchodce
+false,null,mimo_eu,mm_dd_yyyy,kupon
+true,null,mimo_eu,yyyy_mm_dd,student
+false,null,eu,yyyy_mm_dd,duchodce
+true,null,eu,yyyy_mm_dd,kupon
+false,písmena,mimo_eu,dd_mm_yyyy,student
+true,písmena,eu,dd_mm_yyyy,duchodce
+false,písmena,eu,dd_mm_yyyy,kupon
+true,písmena,mimo_eu,mm_dd_yyyy,student
+false,písmena,mimo_eu,mm_dd_yyyy,duchodce
+true,písmena,eu,mm_dd_yyyy,kupon
+false,písmena,eu,yyyy_mm_dd,student
+true,písmena,mimo_eu,yyyy_mm_dd,duchodce
+false,písmena,mimo_eu,yyyy_mm_dd,kupon
+true,zvláštní znaky,eu,dd_mm_yyyy,student
+false,zvláštní znaky,mimo_eu,dd_mm_yyyy,duchodce
+true,zvláštní znaky,mimo_eu,dd_mm_yyyy,kupon
+false,zvláštní znaky,eu,mm_dd_yyyy,student
+true,zvláštní znaky,eu,mm_dd_yyyy,duchodce
+false,zvláštní znaky,mimo_eu,mm_dd_yyyy,kupon
+true,zvláštní znaky,mimo_eu,yyyy_mm_dd,student
+false,zvláštní znaky,eu,yyyy_mm_dd,duchodce
+false,zvláštní znaky,eu,yyyy_mm_dd,kupon
